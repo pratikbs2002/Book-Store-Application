@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import bgImage from "../assets/background.svg";
+import { ToastContainer } from "react-toastify";
 export default function Home() {
   const navigate = useNavigate();
   return (
@@ -47,6 +48,7 @@ export default function Home() {
           Join Now
         </Button>
       </div>
+      <ToastContainer />
     </div>
   );
 }

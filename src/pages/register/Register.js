@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { TextField, Button, Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
@@ -69,13 +71,36 @@ const Register = () => {
       setErrors(validationErrors);
       return;
     }
+    setErrors({});
 
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Mobile Number:", mobileNumber);
     console.log("Password:", password);
     console.log("Confirm Password:", confirmPassword);
-    
+
+    const storedData = JSON.parse(localStorage.getItem("userData")) || [];
+
+    const newUser = {
+      name,
+      email,
+      mobileNumber,
+      password,
+    };
+
+    const updatedData = [...storedData, newUser];
+    localStorage.setItem("userData", JSON.stringify(updatedData));
+    toast.success("Registration successfully", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    navigate(`/login`);
   };
 
   return (
@@ -159,6 +184,7 @@ const Register = () => {
           <span>Login here</span>
         </Link>
       </Box>
+      <ToastContainer />
     </form>
   );
 };

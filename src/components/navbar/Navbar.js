@@ -3,7 +3,8 @@ import { FaTimes, FaBars, FaShoppingCart, FaUser } from "react-icons/fa";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar(props) {
+  const isLogin = props.isLogin;
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -44,19 +45,45 @@ export default function Navbar() {
               borderRadius: "5px",
             }}
           >
-            <Link to="/login">Login</Link>
+            {isLogin ? (
+              <>
+                <div
+                  onClick={() => {
+                    props.setIsLogin(false);
+                    sessionStorage.removeItem("currentUser");
+                    sessionStorage.removeItem("isLogin");
+                  }}
+                >
+                  Logout
+                </div>
+              </>
+            ) : (
+              <>
+                <Link to="/login">Login</Link>
+              </>
+            )}
           </li>
 
-          <li className="navbar-item" style={{ borderLeft: "1px solid black" }}>
-            <Link to="/cart">
-              <FaShoppingCart />
-            </Link>
-          </li>
-          <li className="navbar-item" style={{ marginLeft: "-30px" }}>
-            <Link to="/profile">
-              <FaUser />
-            </Link>
-          </li>
+          {isLogin ? (
+            <>
+              {" "}
+              <li
+                className="navbar-item"
+                style={{ borderLeft: "1px solid black" }}
+              >
+                <Link to="/cart">
+                  <FaShoppingCart />
+                </Link>
+              </li>
+              <li className="navbar-item" style={{ marginLeft: "-30px" }}>
+                <Link to="/profile">
+                  <FaUser />
+                </Link>
+              </li>
+            </>
+          ) : (
+            <></>
+          )}
         </ul>
       </div>
     </nav>

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { TextField, Button, Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({
@@ -35,6 +38,40 @@ const Login = () => {
     }
     console.log("Email:", email);
     console.log("Password:", password);
+
+    const storedData = JSON.parse(localStorage.getItem("userData")) || [];
+    const user = storedData.find(
+      (userData) => userData.email === email && userData.password === password
+    );
+
+    if (user) {
+      sessionStorage.setItem("currentUser", JSON.stringify(user));
+      sessionStorage.setItem("isLogin", "true");
+      toast.success("Login successfully", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setTimeout(() => {
+        navigate(`/`);
+      }, 2000);
+    } else {
+      toast.error("Login Failed", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (
@@ -87,6 +124,7 @@ const Login = () => {
           <span>Register here</span>
         </Link>
       </Box>
+      <ToastContainer />
     </form>
   );
 };
