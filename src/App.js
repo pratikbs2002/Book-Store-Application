@@ -7,6 +7,8 @@ import Book from "./pages/Book";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/navbar/Navbar";
 import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
+import Categories from "./pages/Categories";
 
 function App() {
   return (
@@ -16,8 +18,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/book" element={<Book />} />
+        <Route path="/categories" element={<Categories />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

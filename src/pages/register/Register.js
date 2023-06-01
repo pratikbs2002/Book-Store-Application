@@ -1,93 +1,166 @@
-import React from "react";
+import React, { useState } from "react";
+import { TextField, Button, Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import LoginImage from "../../assets/book.png";
-import "./Register.css";
-import { TextField } from "@mui/material";
 
-export default function Register() {
+const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    mobileNumber: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleMobileNumberChange = (e) => {
+    setMobileNumber(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const validationErrors = {};
+
+    if (name.trim() === "") {
+      validationErrors.name = "Please enter your name";
+    }
+
+    if (email.trim() === "") {
+      validationErrors.email = "Please enter your email";
+    }
+
+    if (mobileNumber.trim() === "") {
+      validationErrors.mobileNumber = "Please enter your mobile number";
+    }
+
+    if (password.trim() === "") {
+      validationErrors.password = "Please enter a password";
+    } else if (password.length < 8) {
+      validationErrors.password = "Password must be at least 8 characters long";
+    }
+
+    if (confirmPassword.trim() === "") {
+      validationErrors.confirmPassword = "Please confirm your password";
+    } else if (password !== confirmPassword) {
+      validationErrors.confirmPassword = "Passwords do not match";
+    }
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Mobile Number:", mobileNumber);
+    console.log("Password:", password);
+    console.log("Confirm Password:", confirmPassword);
+    
+  };
+
   return (
-    <div
-      style={{
-        marginTop: "130px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        backgroundColor: "white",
-      }}
-    >
-      <div
-        style={{
-          background: " #ffffff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "80%",
-          height: "80%",
-          flexWrap: "wrap",
-          boxShadow:
-            "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-        }}
+    <form onSubmit={handleSubmit}>
+      <Box
+        display="flex"
+        flexDirection="column"
+        maxWidth="400px"
+        m="auto"
+        mt={15}
       >
-        <div
+        <Typography variant="h5" align="center" mb={3}>
+          Register
+        </Typography>
+        <TextField
+          label="Name"
+          type="text"
+          value={name}
+          onChange={handleNameChange}
+          fullWidth
+          margin="normal"
+          error={!!errors.name}
+          helperText={errors.name}
+        />
+        <TextField
+          label="Email"
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
+          fullWidth
+          margin="normal"
+          error={!!errors.email}
+          helperText={errors.email}
+        />
+        <TextField
+          label="Mobile Number"
+          type="tel"
+          value={mobileNumber}
+          onChange={handleMobileNumberChange}
+          fullWidth
+          margin="normal"
+          error={!!errors.mobileNumber}
+          helperText={errors.mobileNumber}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          fullWidth
+          margin="normal"
+          error={!!errors.password}
+          helperText={errors.password}
+        />
+        <TextField
+          label="Confirm Password"
+          type="password"
+          value={confirmPassword}
+          onChange={handleConfirmPasswordChange}
+          fullWidth
+          margin="normal"
+          error={!!errors.confirmPassword}
+          helperText={errors.confirmPassword}
+        />
+        <Button variant="contained" type="submit" fullWidth mt={3}>
+          Register
+        </Button>
+
+        <Link
           style={{
+            marginTop: "30px",
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
-            flexWrap: "wrap",
+            alignItems: "center",
             gap: "10px",
-            width: "100%",
-            padding: "30px",
+            textDecoration: "none",
           }}
+          to="/login"
         >
-          <div className="first-part">
-            <img src={LoginImage} alt="login" />
-          </div>
-          <div className="second-part">
-            <div className="login-data">
-              <div className="login-logo"></div>
-              <div className="greeting-message">
-                Welcome to online Book Store
-              </div>
-              <div
-                className="greeting-message"
-                style={{ fontWeight: "500", fontSize: "20px" }}
-              >
-                Register Now
-              </div>
-              <form>
-                <div
-                  style={{
-                    gap: "10px",
-                    display: "flex",
-                    flexDirection: "column",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  <TextField label="UserName" />
-                  <TextField label="Email" />
-                  <TextField label="Mobile Number" />
-                  <TextField label="Password " />
-                  <TextField label="Confirm Password" />
-                </div>
-                {/* <Link
-                  className="link-for-forgot-password"
-                  to="/forgot-password"
-                >
-                  <span> forgot password ?</span>
-                </Link> */}
-                <button className="login-button" htmlType="submit">
-                  Register
-                </button>
-                <Link className="link-for-register" to="/about">
-                  <span> Already have an account ?</span>
-                  <span> Login here</span>
-                </Link>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <span>Already have an account?</span>
+          <span>Login here</span>
+        </Link>
+      </Box>
+    </form>
   );
-}
+};
+
+export default Register;

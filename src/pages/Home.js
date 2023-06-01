@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import bgImage from "../assets/background.svg";
 export default function Home() {
   const navigate = useNavigate();
   return (
@@ -19,10 +20,13 @@ export default function Home() {
           display: "flex",
           justifyContent: "center",
           alignItems: "flex-start",
-          marginLeft: "100px",
           width: "100%",
           flexDirection: "column",
-          marginTop: "100px",
+          marginTop: "0px",
+          background: `${bgImage}`,
+          paddingLeft: "100px",
+          backgroundSize: "cover",
+          height: "80vh",
         }}
       >
         <div style={{ fontWeight: "700", fontSize: "30px", color: "blue" }}>
@@ -38,9 +42,9 @@ export default function Home() {
             backgroundColor: "darkblue",
           }}
           variant="contained"
-          onClick={() => navigate(`/about`)}
+          onClick={() => navigate(`/login`)}
         >
-         Join Now
+          Join Now
         </Button>
       </div>
     </div>

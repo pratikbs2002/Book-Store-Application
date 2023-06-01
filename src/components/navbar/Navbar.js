@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { FaTimes, FaBars } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaTimes, FaBars, FaShoppingCart, FaUser } from "react-icons/fa";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
@@ -32,7 +32,30 @@ export default function Navbar() {
             <Link to="/contact">Contact us</Link>
           </li>
           <li className="navbar-item">
-            <Link to="/book">Categories</Link>
+            <Link to="/categories">Categories</Link>
+          </li>
+
+          <li
+            className="navbar-item"
+            style={{
+              cursor: "pointer",
+              border: "1px solid black",
+              padding: "5px",
+              borderRadius: "5px",
+            }}
+          >
+            <Link to="/login">Login</Link>
+          </li>
+
+          <li className="navbar-item" style={{ borderLeft: "1px solid black" }}>
+            <Link to="/cart">
+              <FaShoppingCart />
+            </Link>
+          </li>
+          <li className="navbar-item" style={{ marginLeft: "-30px" }}>
+            <Link to="/profile">
+              <FaUser />
+            </Link>
           </li>
         </ul>
       </div>

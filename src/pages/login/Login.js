@@ -1,81 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
+import { TextField, Button, Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import LoginImage from "../../assets/book.png";
-import "./Login.css";
-import { TextField } from "@mui/material";
 
-export default function Login() {
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const validationErrors = {};
+    if (email.trim() === "") {
+      validationErrors.email = "Please enter your email";
+    }
+
+    if (password.trim() === "") {
+      validationErrors.password = "Please enter your password";
+    }
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    console.log("Email:", email);
+    console.log("Password:", password);
+  };
+
   return (
-    <div
-      style={{
-        marginTop: "130px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        backgroundColor: "white",
-      }}
-    >
-      <div
-        style={{
-          background: " #ffffff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "80%",
-          height: "80%",
-          flexWrap: "wrap",
-          boxShadow:
-            "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-        }}
+    <form onSubmit={handleSubmit}>
+      <Box
+        display="flex"
+        flexDirection="column"
+        maxWidth="400px"
+        m="auto"
+        mt={15}
       >
-        <div
+        <Typography variant="h5" align="center" mb={3}>
+          Login
+        </Typography>
+        <TextField
+          label="Email"
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
+          fullWidth
+          margin="normal"
+          error={!!errors.email}
+          helperText={errors.email}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          fullWidth
+          margin="normal"
+          error={!!errors.password}
+          helperText={errors.password}
+        />
+        <Button variant="contained" type="submit" fullWidth mt={3}>
+          Login
+        </Button>
+        <Link
           style={{
+            marginTop: "30px",
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
-            flexWrap: "wrap",
+            alignItems: "center",
             gap: "10px",
-            width: "100%",
+            textDecoration: "none",
           }}
+          to="/register"
         >
-          <div className="first-part">
-            <img src={LoginImage} alt="login" />
-          </div>
-          <div className="second-part">
-            <div className="login-data">
-              <div className="login-logo"></div>
-              <div className="greeting-message">Welcome back</div>
-              <form>
-                <div
-                  style={{
-                    gap: "10px",
-                    display: "flex",
-                    flexDirection: "column",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  <TextField label="UserName" />
-                  <TextField label="Password " />
-                </div>
-                <Link
-                  className="link-for-forgot-password"
-                  to="/forgot-password"
-                >
-                  <span> forgot password ?</span>
-                </Link>
-                <button className="login-button" htmlType="submit">
-                  LOGIN
-                </button>
-                <Link className="link-for-register" to="/register">
-                  <span> Don’t have an account ?</span>
-                  <span> Register here</span>
-                </Link>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <span>Don't have an account?</span>
+          <span>Register here</span>
+        </Link>
+      </Box>
+    </form>
   );
-}
+};
+
+export default Login;
