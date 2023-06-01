@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaTimes, FaBars, FaShoppingCart, FaUser } from "react-icons/fa";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../pages/AuthContext";
 
-export default function Navbar(props) {
-  const isLogin = props.isLogin;
+export default function Navbar() {
+  const { currentUser, setCurrentUser, isLogin, setIsLogin } =
+    useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
+  const handleLogout = () => {
+    setCurrentUser(null);
+    setIsLogin(false);
+    sessionStorage.removeItem("currentUser");
+    sessionStorage.removeItem("isLogin");
+  };
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -47,15 +55,7 @@ export default function Navbar(props) {
           >
             {isLogin ? (
               <>
-                <div
-                  onClick={() => {
-                    props.setIsLogin(false);
-                    sessionStorage.removeItem("currentUser");
-                    sessionStorage.removeItem("isLogin");
-                  }}
-                >
-                  Logout
-                </div>
+                <div onClick={handleLogout}>Logout</div>
               </>
             ) : (
               <>

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./UserProfile.css";
+import { AuthContext } from "../AuthContext";
 
-export default function UserProfile(props) {
-  const { userData } = props;
-  console.log(props.userData);
+export default function UserProfile() {
+  const { currentUser, isLogin } = useContext(AuthContext);
+  const userData = currentUser;
+
   return (
     <div
       className="profile-page-container"

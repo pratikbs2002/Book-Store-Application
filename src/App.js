@@ -12,30 +12,20 @@ import Categories from "./pages/Categories";
 import UserProfile from "./pages/userProfile/UserProfile";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
-  const userData = JSON.parse(sessionStorage.getItem("currentUser"));
-
-  useEffect(() => {
-    const temp = JSON.parse(sessionStorage.getItem("isLogin"));
-    setIsLogin(temp);
-  }, []);
-
-  console.log(isLogin);
-
   return (
-    <BrowserRouter>
-      <Navbar isLogin={isLogin} setIsLogin={setIsLogin} />
+    <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="profile" element={<UserProfile userData={userData} />} />
+        <Route path="profile" element={<UserProfile />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
