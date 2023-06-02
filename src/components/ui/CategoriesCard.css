@@ -13,6 +13,7 @@
   text-align: center;
   transition: box-shadow 0.3s;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .card:hover {

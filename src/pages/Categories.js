@@ -4,6 +4,7 @@ import CategoriesCard from "../components/ui/CategoriesCard";
 import education from "../assets/categories/education.png";
 import cooking from "../assets/categories/cooking.png";
 import arts from "../assets/categories/arts.png";
+import { Typography } from "@mui/material";
 export default function Categories() {
   const data = [
     { id: 0, title: "Fiction", imageSrc: education },
@@ -28,10 +29,23 @@ export default function Categories() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "column",
         marginTop: "200px",
         paddingBottom: "100px",
       }}
     >
+      <Typography
+        display={"flex"}
+        position={"sticky"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        width={"100%"}
+        padding={5}
+        bgcolor={"wheat"}
+        variant="h5"
+      >
+        Choose Your Category
+      </Typography>
       <div className="card-container">
         {data.map((card, index) => (
           <CategoriesCard

@@ -3,8 +3,11 @@ import { FaTimes, FaBars, FaShoppingCart, FaUser } from "react-icons/fa";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../pages/AuthContext";
+import { Badge } from "@mui/material";
+import { CartContext } from "../../pages/cart/CartContext";
 
 export default function Navbar() {
+  const { cartItems } = useContext(CartContext);
   const { currentUser, setCurrentUser, isLogin, setIsLogin } =
     useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
@@ -66,16 +69,17 @@ export default function Navbar() {
 
           {isLogin ? (
             <>
-              {" "}
               <li
                 className="navbar-item"
                 style={{ borderLeft: "1px solid black" }}
               >
-                <Link to="/cart">
-                  <FaShoppingCart />
-                </Link>
+                <Badge badgeContent={cartItems.length} color="info">
+                  <Link to="/cart">
+                    <FaShoppingCart />
+                  </Link>
+                </Badge>
               </li>
-              <li className="navbar-item" style={{ marginLeft: "-30px" }}>
+              <li className="navbar-item">
                 <Link to="/profile">
                   <FaUser />
                 </Link>

@@ -46,6 +46,8 @@
   list-style-type: none;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 100%;
   left: 0;
@@ -57,7 +59,6 @@
 
 .navbar-item {
   color: rgb(0, 0, 0);
-
   margin: 0 1rem;
 }
 .navbar-item a {
