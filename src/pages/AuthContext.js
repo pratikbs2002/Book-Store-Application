@@ -87,6 +87,27 @@ export const AuthProvider = ({ children }) => {
   //     sessionStorage.removeItem("isLogin");
   //   };
 
+  const updateProfile = (updatedData) => {
+    const storedData = JSON.parse(localStorage.getItem("userData")) || [];
+    const userIndex = storedData.findIndex(
+      (userData) => updatedData.id === userData.id
+    );
+
+    if (userIndex !== -1) {
+      storedData[userIndex] = {
+        id: updatedData.id,
+        name: updatedData.name,
+        email: updatedData.email,
+        mobileNumber: updatedData.mobileNumber,
+        city: updatedData.city,
+        password: updatedData.password,
+      };
+
+      localStorage.setItem("userData", JSON.stringify(storedData));
+      sessionStorage.setItem("currentUser", JSON.stringify(updatedData));
+    }
+  };
+
   const authContextValue = {
     currentUser,
     isLogin,
@@ -95,6 +116,7 @@ export const AuthProvider = ({ children }) => {
     register,
     login,
     // logout,
+    updateProfile,
   };
 
   return (

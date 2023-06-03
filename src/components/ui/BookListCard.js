@@ -49,7 +49,7 @@ export default function BookListCard(props) {
               padding: "8px",
             }}
           >
-            ${price}
+            ₹{price}
           </div>
           <Button
             // style={{ marginTop: "20px" }}

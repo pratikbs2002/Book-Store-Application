@@ -12,12 +12,14 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
+  const [city, setCity] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     mobileNumber: "",
+    city: "",
     password: "",
     confirmPassword: "",
   });
@@ -32,6 +34,9 @@ const Register = () => {
 
   const handleMobileNumberChange = (e) => {
     setMobileNumber(e.target.value);
+  };
+  const handleCityChange = (e) => {
+    setCity(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -58,6 +63,9 @@ const Register = () => {
     if (mobileNumber.trim() === "") {
       validationErrors.mobileNumber = "Please enter your mobile number";
     }
+    if (city.trim() === "") {
+      validationErrors.city = "Please enter your city name";
+    }
 
     if (password.trim() === "") {
       validationErrors.password = "Please enter a password";
@@ -77,15 +85,12 @@ const Register = () => {
     }
     setErrors({});
 
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Mobile Number:", mobileNumber);
-    console.log("Password:", password);
-    console.log("Confirm Password:", confirmPassword);
     const newUser = {
+      id: Math.random().toString(36).substr(2, 9),
       name,
       email,
       mobileNumber,
+      city,
       password,
     };
 
@@ -151,6 +156,16 @@ const Register = () => {
           margin="normal"
           error={!!errors.mobileNumber}
           helperText={errors.mobileNumber}
+        />
+        <TextField
+          label="City"
+          type="text"
+          value={city}
+          onChange={handleCityChange}
+          fullWidth
+          margin="normal"
+          error={!!errors.city}
+          helperText={errors.city}
         />
         <TextField
           label="Password"

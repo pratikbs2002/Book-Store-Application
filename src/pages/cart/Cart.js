@@ -14,6 +14,7 @@ import emptyCartImage from "../../assets/empty-cart.png";
 import { MdDelete, MdAdd, MdRemove } from "react-icons/md";
 import { BsCartXFill } from "react-icons/bs";
 import { toast } from "react-toastify";
+import { AuthContext } from "../AuthContext";
 
 export default function Cart() {
   const {
@@ -23,6 +24,9 @@ export default function Cart() {
     updateCartItemQuantity,
     totalPrice,
   } = useContext(CartContext);
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const userData = currentUser
+
 
   const handleRemoveFromCart = (item) => {
     removeFromCart(item);
@@ -63,6 +67,9 @@ export default function Cart() {
         textAlign: "center",
       }}
     >
+      <div>Name : {userData.name}</div>
+      <div>Email: {userData.email}</div>
+      <div>Mobile Number: {userData.mobileNumber}</div>
       <Typography variant="h5">Your Shopping Cart</Typography>
       <Typography
         style={{
@@ -72,7 +79,7 @@ export default function Cart() {
         }}
         variant="h5"
       >
-        Total Price : ${totalPrice}
+        Total Price : ₹{totalPrice}
       </Typography>
       {cartItems.length === 0 ? (
         <>
@@ -150,7 +157,7 @@ export default function Cart() {
                     </div>
                   </TableCell>
                   <TableCell align="center">
-                    ${item.totalIndividualPrice}
+                    ₹{item.totalIndividualPrice}
                   </TableCell>
                   <TableCell align="center">
                     <MdDelete
