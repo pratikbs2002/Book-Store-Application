@@ -15,7 +15,8 @@ import {
 } from "@mui/material";
 import { AuthContext } from "../AuthContext";
 import { FaTimes } from "react-icons/fa";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { AiFillEyeInvisible, AiFillEye, AiFillEdit } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 const UserProfile = () => {
   const { currentUser, setCurrentUser, updateProfile } =
@@ -92,6 +93,16 @@ const UserProfile = () => {
     setErrors({});
     updateProfile(updatedUser);
     handleClose();
+    toast.success("Profile Update Successfully", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   const handleClickOpen = () => {
@@ -115,11 +126,25 @@ const UserProfile = () => {
           alignItems: "center",
           width: "100%",
           flexDirection: "column",
-          marginTop: "100px",
+          marginTop: "150px",
+          paddingBottom: "100px",
         }}
       >
+        <Typography
+          display={"flex"}
+          position={"sticky"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          width={"100%"}
+          padding={5}
+          bgcolor={"wheat"}
+          variant="h5"
+        >
+          Profile
+        </Typography>
         <Card
           style={{
+            marginTop: "100px",
             display: "flex",
             flexWrap: "wrap",
             minWidth: "300px",
@@ -247,10 +272,11 @@ const UserProfile = () => {
               right: "10px",
               zIndex: 100,
             }}
+            startIcon={<AiFillEdit />}
             variant="contained"
             onClick={handleClickOpen}
           >
-            Edit Profile
+            Edit
           </Button>
         </Card>
       </div>
@@ -326,7 +352,11 @@ const UserProfile = () => {
                     endAdornment: (
                       <InputAdornment position="end">
                         <IconButton onClick={handleTogglePassword} edge="end">
-                          {showPassword ? <FiEyeOff /> : <FiEye />}
+                          {showPassword ? (
+                            <AiFillEyeInvisible />
+                          ) : (
+                            <AiFillEye />
+                          )}
                         </IconButton>
                       </InputAdornment>
                     ),
@@ -346,7 +376,11 @@ const UserProfile = () => {
                     endAdornment: (
                       <InputAdornment position="end">
                         <IconButton onClick={handleTogglePassword} edge="end">
-                          {showPassword ? <FiEyeOff /> : <FiEye />}
+                          {showPassword ? (
+                            <AiFillEyeInvisible />
+                          ) : (
+                            <AiFillEye />
+                          )}
                         </IconButton>
                       </InputAdornment>
                     ),

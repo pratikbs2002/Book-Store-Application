@@ -40,7 +40,7 @@ const Contact = () => {
         <Typography variant="h4" component="div" align="center">
           Contact Us
         </Typography>
-        <CardContent
+        {/* <CardContent
           style={{
             display: "flex",
             justifyContent: "center",
@@ -104,7 +104,7 @@ const Contact = () => {
               </Button>
             </form>
           </div>
-        </CardContent>
+        </CardContent> */}
       </Card>
     </div>
   );

@@ -30,7 +30,7 @@ export default function Categories() {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        marginTop: "200px",
+        marginTop: "300px",
         paddingBottom: "100px",
       }}
     >

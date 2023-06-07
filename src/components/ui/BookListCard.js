@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function BookListCard(props) {
   const { isLogin } = useContext(AuthContext);
 
-  const { title, imageSrc, price, productId } = props;
+  const { title, imageSrc, price, productId, author } = props;
   const { addToCart } = useContext(CartContext);
   const navigate = useNavigate();
 
@@ -21,6 +21,7 @@ export default function BookListCard(props) {
         totalIndividualPrice: price,
         imageSrc: imageSrc,
         quantity: 1,
+        author: author,
       };
       addToCart(bookItem);
     } else {
