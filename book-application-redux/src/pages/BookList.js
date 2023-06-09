@@ -4,10 +4,8 @@ import education2 from "../assets/books/education2.jpg";
 import education3 from "../assets/books/education3.jpg";
 import education4 from "../assets/books/education4.jpg";
 import education5 from "../assets/books/education5.jpeg";
-import React, { useContext } from "react";
+import React from "react";
 import BookListCard from "../components/ui/BookListCard";
-import { useParams } from "react-router-dom";
-import { AuthContext } from "./AuthContext";
 import { Typography } from "@mui/material";
 
 export default function BookList() {

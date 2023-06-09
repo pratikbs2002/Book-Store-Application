@@ -22,7 +22,7 @@ import {
   removeFromCart,
   updateCartItemQuantity,
 } from "../redux/CartSlice";
-
+import { TbTruckDelivery } from "react-icons/tb";
 export default function Cart() {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
@@ -240,8 +240,9 @@ export default function Cart() {
                 <div className="order-now-button">
                   <Button
                     disabled={cartItems.length === 0}
-                    onClick={() => alert("Order Done")}
+                    onClick={() => toast.success("Order Done")}
                     variant="contained"
+                    endIcon={<TbTruckDelivery className="truck-icon" />}
                   >
                     Order Now
                   </Button>

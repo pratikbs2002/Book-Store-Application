@@ -13,7 +13,7 @@ export default function BookListCard(props) {
   const navigate = useNavigate();
   const { isLogin } = useContext(AuthContext);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = () => { 
     if (isLogin) {
       const bookItem = {
         id: productId,
@@ -35,24 +35,16 @@ export default function BookListCard(props) {
       <div className="book-list-card">
         <div className="upper-component">
           <img src={imageSrc} alt={title} className="book-list-card-image" />
-          <h2 className="book-list-card-title">{title}</h2>
+          <div className="book-list-card-title">{title}</div>
+          <div
+            style={{ color: "red", marginTop: "10px" }}
+            className="book-list-card-title"
+          >
+            Author: {author}
+          </div>
         </div>
         <div className="bottom-component">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              fontWeight: "500",
-              background: "#1565c0",
-              color: "white",
-              borderRadius: "4px",
-              width: "100%",
-              padding: "8px",
-            }}
-          >
-            ₹{price}
-          </div>
+          <div className="price-tag">₹{price}</div>
           <Button
             variant="contained"
             color="primary"
