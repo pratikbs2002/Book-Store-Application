@@ -1,3 +1,9 @@
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { MdAdd, MdDelete, MdRemove } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import emptyCartImage from "../../assets/empty-cart.png";
 import {
   Button,
   Divider,
@@ -9,43 +15,37 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import React, { useContext } from "react";
-import {
-  BsArrowLeft
-} from "react-icons/bs";
-import { MdAdd, MdDelete, MdRemove } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import emptyCartImage from "../../assets/empty-cart.png";
-import { AuthContext } from "../AuthContext";
+import { BsArrowLeft } from "react-icons/bs";
 import "./Cart.css";
-import { CartContext } from "./CartContext";
+import {
+  clearCart,
+  removeFromCart,
+  updateCartItemQuantity,
+} from "../redux/CartSlice";
+
 export default function Cart() {
-  const {
-    cartItems,
-    removeFromCart,
-    clearCart,
-    updateCartItemQuantity,
-    totalPrice,
-  } = useContext(CartContext);
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
-  const userData = currentUser;
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleRemoveFromCart = (item) => {
-    removeFromCart(item);
+    dispatch(removeFromCart(item));
   };
 
   const handleClearCart = () => {
-    clearCart();
+    dispatch(clearCart());
   };
 
   const handleQuantityIncrement = (item) => {
-    updateCartItemQuantity(item.id, 1, item.price);
+    dispatch(
+      updateCartItemQuantity({ id: item.id, quantity: 1, price: item.price })
+    );
   };
 
   const handleQuantityDecrement = (item) => {
     if (item.quantity === 1) {
-      toast.error("Item quantity can not be 0", {
+      toast.error("Item quantity cannot be 0", {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -58,7 +58,9 @@ export default function Cart() {
       return;
     }
 
-    updateCartItemQuantity(item.id, -1, -item.price);
+    dispatch(
+      updateCartItemQuantity({ id: item.id, quantity: -1, price: -item.price })
+    );
   };
 
   return (

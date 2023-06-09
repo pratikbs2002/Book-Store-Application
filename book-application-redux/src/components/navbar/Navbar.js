@@ -4,10 +4,10 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../pages/AuthContext";
 import { Badge } from "@mui/material";
-import { CartContext } from "../../pages/cart/CartContext";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
-  const { cartItems } = useContext(CartContext);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const { currentUser, setCurrentUser, isLogin, setIsLogin } =
     useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);

@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
-import "./BookListCard.css";
 import { IoIosCart } from "react-icons/io";
-import { CartContext } from "../../pages/cart/CartContext";
 import { Button } from "@mui/material";
-import { AuthContext } from "../../pages/AuthContext";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-export default function BookListCard(props) {
-  const { isLogin } = useContext(AuthContext);
+import { AuthContext } from "../../pages/AuthContext";
+import "./BookListCard.css";
+import { addToCart } from "../../pages/redux/CartSlice";
 
+export default function BookListCard(props) {
   const { title, imageSrc, price, productId, author } = props;
-  const { addToCart } = useContext(CartContext);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { isLogin } = useContext(AuthContext);
 
   const handleAddToCart = () => {
     if (isLogin) {
@@ -23,11 +24,12 @@ export default function BookListCard(props) {
         quantity: 1,
         author: author,
       };
-      addToCart(bookItem);
+      dispatch(addToCart(bookItem));
     } else {
       navigate(`/login`);
     }
   };
+
   return (
     <>
       <div className="book-list-card">
@@ -35,7 +37,6 @@ export default function BookListCard(props) {
           <img src={imageSrc} alt={title} className="book-list-card-image" />
           <h2 className="book-list-card-title">{title}</h2>
         </div>
-
         <div className="bottom-component">
           <div
             style={{
@@ -53,7 +54,6 @@ export default function BookListCard(props) {
             ₹{price}
           </div>
           <Button
-            // style={{ marginTop: "20px" }}
             variant="contained"
             color="primary"
             startIcon={<IoIosCart />}
