@@ -1,17 +1,35 @@
 .book-list-card {
-  width: 250px;
-  height: 420px;
+  width: 400px;
+  height: 250px;
   background-color: #ffffff;
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   transition: box-shadow 0.3s, transform 0.3s;
+  gap: 2px;
+}
+
+.upper-component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  height: 200px;
+}
+
+.bottom-component {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: 200px;
+  position: relative;
+  padding-left: 10px;
+  gap: 15px;
 }
 
 .book-list-card:hover {
@@ -29,12 +47,55 @@
 }
 
 .book-list-card-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
+  text-align: left;
+}
+
+.details-button-container {
+  cursor: pointer;
+  text-align: left;
+  color: darkblue;
   display: flex;
-  justify-content: center;
   align-items: center;
+  font-size: 10px;
+  gap: 5px;
+  width: 70px;
+  border-radius: 10px;
+}
+
+.details-icon {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 100%;
+  width: 8px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4562a04c;
+}
+
+.price-tag {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  border-radius: 4px;
   width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .add-to-cart-button {
@@ -58,23 +119,125 @@
 .add-to-cart-icon {
   margin-right: 6px;
 }
-
-.bottom-component {
+/* 
+.dialog-book-list-card {
+  width: 400px;
+  height: 250px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
-  gap: 10px;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  gap: 2px;
 }
 
-.price-tag {
+.dialog-upper-component {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 45%;
+  height: 200px;
+}
+
+.dialog-bottom-component {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: 200px;
+  position: relative;
+  padding-left: 10px;
+  gap: 15px;
+}
+
+.dialog-book-list-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.dialog-book-list-card-image {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.dialog-book-list-card-title {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.dialog-details-button-container {
+  cursor: pointer;
+  text-align: left;
+  color: darkblue;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  gap: 5px;
+  width: 70px;
+  border-radius: 10px;
+}
+
+.dialog-details-icon {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 100%;
+  width: 8px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4562a04c;
+}
+
+.dialog-price-tag {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
   font-weight: 500;
   color: rgb(0, 0, 0);
   border-radius: 4px;
-  padding: 8px;
   width: 100%;
+  font-size: 20px;
+  font-weight: 700;
 }
+
+.dialog-button-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.dialog-add-to-cart-button {
+  align-items: center;
+  justify-content: center;
+  background-color: #4c89af;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dialog-add-to-cart-button:hover {
+  background-color: #4562a0;
+}
+
+.dialog-add-to-cart-icon {
+  margin-right: 6px;
+} */

@@ -3,7 +3,15 @@ import { FaTimes, FaBars, FaShoppingCart, FaUser } from "react-icons/fa";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../pages/AuthContext";
-import { Badge } from "@mui/material";
+import {
+  Badge,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 import { useSelector } from "react-redux";
 
 export default function Navbar() {
@@ -11,14 +19,25 @@ export default function Navbar() {
   const { currentUser, setCurrentUser, isLogin, setIsLogin } =
     useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   const handleLogout = () => {
+    setIsDialogOpen(true);
+  };
+
+  const confirmLogoutHandler = () => {
     setCurrentUser(null);
     setIsLogin(false);
     sessionStorage.removeItem("currentUser");
     sessionStorage.removeItem("isLogin");
+    setIsDialogOpen(false);
   };
+
+  const cancelLogout = () => {
+    setIsDialogOpen(false);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -36,37 +55,35 @@ export default function Navbar() {
           <li className="navbar-item">
             <Link to="/">Home</Link>
           </li>
-
-          <li className="navbar-item">
+          {/* <li className="navbar-item">
             <Link to="/about">About</Link>
-          </li>
+          </li> */}
           <li className="navbar-item">
             <Link to="/contact">Contact us</Link>
           </li>
           <li className="navbar-item">
             <Link to="/categories">Categories</Link>
           </li>
-
-          <li
-            className="navbar-item"
-            style={{
-              cursor: "pointer",
-              border: "1px solid black",
-              padding: "5px",
-              borderRadius: "5px",
-            }}
-          >
+          <li className="">
             {isLogin ? (
               <>
-                <div onClick={handleLogout}>Logout</div>
+                <Button
+                  style={{ backgroundColor: "black", color: "white" }}
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Button>
               </>
             ) : (
               <>
-                <Link to="/login">Login</Link>
+                <Button style={{ backgroundColor: "black", color: "white" }}>
+                  <Link style={{ color: "white" }} to="/login">
+                    Login
+                  </Link>
+                </Button>
               </>
             )}
           </li>
-
           {isLogin ? (
             <>
               <li
@@ -79,7 +96,7 @@ export default function Navbar() {
                   </Link>
                 </Badge>
               </li>
-              <li className="navbar-item">
+              <li style={{ marginLeft: "-15px" }} className="navbar-item">
                 <Link to="/profile">
                   <FaUser />
                 </Link>
@@ -90,6 +107,28 @@ export default function Navbar() {
           )}
         </ul>
       </div>
+
+      <Dialog open={isDialogOpen} Width="ls" fullWidth onClose={cancelLogout}>
+        <DialogTitle>Confirm Logout</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you want to logout?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button variant="outlined" onClick={cancelLogout}>
+            Cancel
+          </Button>
+          <Button
+            variant="contained"
+            // style={{ backgroundColor: "black" }}
+            onClick={confirmLogoutHandler}
+            autoFocus
+          >
+            Logout
+          </Button>
+        </DialogActions>
+      </Dialog>
     </nav>
   );
 }

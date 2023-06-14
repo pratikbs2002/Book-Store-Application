@@ -124,7 +124,6 @@ export default function BookList() {
         alignItems: "center",
         marginTop: "400px",
         paddingBottom: "200px",
-        background: "#d7fefc",
       }}
     >
       <Typography
@@ -134,7 +133,6 @@ export default function BookList() {
         justifyContent={"center"}
         width={"100%"}
         padding={5}
-        bgcolor={"wheat"}
         variant="h5"
       >
         Choose Your Book

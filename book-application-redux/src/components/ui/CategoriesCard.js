@@ -10,7 +10,7 @@ const CategoriesCard = ({ title, imageSrc }) => {
   };
   return (
     <div onClick={handleCardClicker} className="card">
-      <img src={imageSrc} alt={title} className="card-image" />
+      {/* <img src={imageSrc} alt={title} className="card-image" /> */}
       <h2 className="card-title">{title}</h2>
     </div>
   );

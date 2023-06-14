@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import bgImage from "../assets/background.svg";
 import { ToastContainer } from "react-toastify";
 import { AuthContext } from "./AuthContext";
+import { FaShoppingCart } from "react-icons/fa";
 
 export default function Home() {
   const { isLogin } = useContext(AuthContext);
@@ -57,13 +58,13 @@ export default function Home() {
         </div>
         {isLogin ? (
           <>
-            {" "}
             <Button
               style={{
                 marginTop: "30px",
               }}
               variant="contained"
               onClick={() => navigate(`/categories`)}
+              startIcon={<FaShoppingCart />}
             >
               Shop Now
             </Button>

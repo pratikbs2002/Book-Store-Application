@@ -69,7 +69,12 @@ export default function Cart() {
         <div className="cart-page-main-container-inner-part">
           <div className="cart-page-cart-component">
             <div className="cart-top-bar">
-              <Typography className="cart-title">Shopping Cart</Typography>
+              <Typography
+                style={{ fontWeight: "500", fontSize: "25px" }}
+                className="cart-title"
+              >
+                Shopping Cart
+              </Typography>
               <Typography className="cart-title">
                 {cartItems.length} Items
               </Typography>
@@ -122,12 +127,12 @@ export default function Cart() {
                             />
                           </TableCell>
                           <TableCell>
-                            <div>{item.title}</div>
+                            <div color="black">{item.title}</div>
                             <div
                               style={{
-                                color: "red",
+                                color: "black",
                                 fontSize: "15px",
-                                opacity: "60%",
+                                opacity: "50%",
                               }}
                             >
                               {item.author}
@@ -150,7 +155,6 @@ export default function Cart() {
                               />
                               <div
                                 style={{
-                                  border: "1px solid black",
                                   display: "flex",
                                   justifyContent: "center",
                                   alignItems: "center",
@@ -203,7 +207,8 @@ export default function Cart() {
                   justifyContent: "center",
                   alignItems: "center",
                   gap: "10px",
-                  color: "blue",
+                  color: "#ee4036",
+                  fontWeight: "500",
                 }}
                 onClick={() => navigate(`/categories`)}
               >
@@ -217,7 +222,8 @@ export default function Cart() {
                   justifyContent: "center",
                   alignItems: "center",
                   gap: "10px",
-                  color: "blue",
+                  fontWeight: "600",
+                  color: "#ee4036",
                 }}
                 onClick={handleClearCart}
               >
@@ -229,7 +235,6 @@ export default function Cart() {
             <div className="cart-top-bar">
               <Typography className="cart-title">Order Summary</Typography>
               <Divider />
-              {/* <div className="cart-title">3 Items</div> */}
             </div>
             <div className="cart-order-summary">
               <div className="bottom-part">
@@ -241,8 +246,8 @@ export default function Cart() {
                   <Button
                     disabled={cartItems.length === 0}
                     onClick={() => toast.success("Order Done")}
-                    variant="contained"
                     endIcon={<TbTruckDelivery className="truck-icon" />}
+                    style={{ backgroundColor: "#121920", color: "white" }}
                   >
                     Order Now
                   </Button>

@@ -1,32 +1,57 @@
-.contact-root {
+.contact-page-main-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 200px;
+  width: 80%;
+  max-width: 800px;
 }
 
 .contact-card {
-  max-width: 100%;
-  padding: 16px;
-}
-
-.contact-section {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  gap: 8px;
+  text-align: center;
+  flex-basis: 300px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  height: 200px;
+  cursor: pointer;
+  transition: transform 1s;
 }
 
-/* styles.css */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
+.contact-card:hover {
+  transform: scale(1.1);
 }
 
-.contact-input {
+.contact-icon {
+  font-size: 40px;
   margin-bottom: 10px;
 }
 
-.contact-button {
-  margin-top: 10px;
+.contact-title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  color: #666;
+}
+
+@media screen and (max-width: 600px) {
+  .contact-card {
+    flex-basis: 100%;
+  }
 }

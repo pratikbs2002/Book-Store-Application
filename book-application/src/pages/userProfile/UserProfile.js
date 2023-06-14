@@ -137,7 +137,6 @@ const UserProfile = () => {
           justifyContent={"center"}
           width={"100%"}
           padding={5}
-          bgcolor={"wheat"}
           variant="h5"
         >
           Profile

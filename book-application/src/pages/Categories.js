@@ -25,7 +25,6 @@ export default function Categories() {
     <div
       style={{
         width: "100%",
-        height: "80vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -41,7 +40,6 @@ export default function Categories() {
         justifyContent={"center"}
         width={"100%"}
         padding={5}
-        bgcolor={"wheat"}
         variant="h5"
       >
         Choose Your Category

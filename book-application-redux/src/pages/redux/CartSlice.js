@@ -66,12 +66,11 @@ const CartSlice = createSlice({
       const cartItem = state.cartItems.find((item) => item.id === id);
 
       if (cartItem) {
-        const updatedTotalPrice = state.totalPrice + quantity * price;
+        const updatedTotalPrice = state.totalPrice + price;
         const updatedCartItem = {
           ...cartItem,
           quantity: cartItem.quantity + quantity,
-          totalIndividualPrice:
-            cartItem.totalIndividualPrice + quantity * price,
+          totalIndividualPrice: cartItem.totalIndividualPrice + price,
         };
 
         state.cartItems = state.cartItems.map((item) =>

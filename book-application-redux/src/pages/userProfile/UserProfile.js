@@ -126,25 +126,21 @@ const UserProfile = () => {
           alignItems: "center",
           width: "100%",
           flexDirection: "column",
-          marginTop: "150px",
+          marginTop: "100px",
           paddingBottom: "100px",
         }}
       >
-        <Typography
-          display={"flex"}
-          position={"sticky"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          width={"100%"}
-          padding={5}
-          bgcolor={"wheat"}
-          variant="h5"
+        <h2
+          style={{
+            textAlign: "center",
+            width: "100%",
+            color: "black",
+          }}
         >
           Profile
-        </Typography>
+        </h2>
         <Card
           style={{
-            marginTop: "100px",
             display: "flex",
             flexWrap: "wrap",
             minWidth: "300px",
@@ -164,13 +160,13 @@ const UserProfile = () => {
               flexDirection: "column",
             }}
           >
-            <Typography>Name</Typography>
+            <Typography color={"black"}>Name</Typography>
             <div
               style={{
-                borderRadius: "2px",
+                borderRadius: "5px",
                 border: "1px solid black",
                 padding: "10px",
-                backgroundColor: "#d8d8d8",
+                backgroundColor: "#fbf7f7",
                 color: "black",
               }}
             >
@@ -189,10 +185,10 @@ const UserProfile = () => {
             <Typography>Mobile Number</Typography>
             <div
               style={{
-                borderRadius: "2px",
+                borderRadius: "5px",
                 border: "1px solid black",
                 padding: "10px",
-                backgroundColor: "#d8d8d8",
+                backgroundColor: "#fbf7f7",
                 color: "black",
               }}
             >
@@ -211,10 +207,10 @@ const UserProfile = () => {
             <Typography>Email</Typography>
             <div
               style={{
-                borderRadius: "2px",
+                borderRadius: "5px",
                 border: "1px solid black",
                 padding: "10px",
-                backgroundColor: "#d8d8d8",
+                backgroundColor: "#fbf7f7",
                 color: "black",
               }}
             >
@@ -233,10 +229,10 @@ const UserProfile = () => {
             <Typography>City</Typography>
             <div
               style={{
-                borderRadius: "2px",
+                borderRadius: "5px",
                 border: "1px solid black",
                 padding: "10px",
-                backgroundColor: "#d8d8d8",
+                backgroundColor: "#fbf7f7",
                 color: "black",
               }}
             >
@@ -255,10 +251,10 @@ const UserProfile = () => {
             <Typography>Password</Typography>
             <div
               style={{
-                borderRadius: "2px",
+                borderRadius: "5px",
                 border: "1px solid black",
                 padding: "10px",
-                backgroundColor: "#d8d8d8",
+                backgroundColor: "#fbf7f7",
                 color: "black",
               }}
             >
@@ -271,9 +267,10 @@ const UserProfile = () => {
               bottom: "10px",
               right: "10px",
               zIndex: 100,
+              backgroundColor: "black",
+              color: "white",
             }}
             startIcon={<AiFillEdit />}
-            variant="contained"
             onClick={handleClickOpen}
           >
             Edit
@@ -388,8 +385,11 @@ const UserProfile = () => {
                 />
               </div>
               <DialogActions>
-                <Button variant="contained" onClick={handleProfileUpdateSubmit}>
-                  Update Profile
+                <Button
+                  style={{ backgroundColor: "#121920", color: "white" }}
+                  onClick={handleProfileUpdateSubmit}
+                >
+                  Update
                 </Button>
               </DialogActions>
             </form>
