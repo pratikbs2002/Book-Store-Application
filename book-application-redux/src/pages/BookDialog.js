@@ -64,7 +64,7 @@ export default function BookDialog(props) {
               alignItems: "center",
               padding: "5px",
               gap: "5px",
-              backgroundColor: "red",
+              backgroundColor: "black",
               borderRadius: "30px",
               cursor: "pointer",
               paddingRight: "15px",

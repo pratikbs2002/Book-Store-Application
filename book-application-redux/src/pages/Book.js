@@ -17,11 +17,11 @@ export default function Book(props) {
         </div>
         <div style={{ width: "2px", background: "black", height: "80%" }}></div>
         <div className="dialog-bottom-component">
-          <div style={{ color: "red" }} className="dialog-book-list-card-title">
-            {title}
+          <div className="dialog-book-list-card-title">{title}</div>
+          <div style={{ fontSize: "15px", textAlign: "left" }}>
+            Author: {author}
           </div>
-          <div className="dialog-book-list-card-title">Author: {author}</div>
-          <div className="dialog-book-list-card-title">
+          <div style={{ fontSize: "15px", textAlign: "left" }}>
             Description: {author}
           </div>
         </div>

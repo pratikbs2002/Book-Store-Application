@@ -59,10 +59,10 @@ export default function Navbar() {
             <Link to="/about">About</Link>
           </li> */}
           <li className="navbar-item">
-            <Link to="/contact">Contact us</Link>
+            <Link to="/categories">Categories</Link>
           </li>
           <li className="navbar-item">
-            <Link to="/categories">Categories</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li className="">
             {isLogin ? (

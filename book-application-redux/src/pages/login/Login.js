@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../AuthContext";
-import bgImage from "../../assets/background.svg";
+import bgImage from "../../assets/home.png";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -48,29 +48,25 @@ const Login = () => {
   return (
     <form
       style={{
-        backgroundImage: `url(${bgImage})`,
-        // backgroundRepeat: "no-repeat",
-        backgroundPosition: "right bottom",
-        height: "100vh",
+        height: "80vh",
         alignItems: "center",
         justifyContent: "center",
         display: "flex",
         width: "100%",
+        marginTop: "100px",
       }}
       onSubmit={handleSubmit}
     >
       <Box
-        // border={"1px solid black"}
         bgcolor={"white"}
         borderRadius={"20px"}
         boxShadow={"0 4px 8px rgba(0, 0, 0, 0.2)"}
-        padding={10}
+        padding={"70px"}
+        paddingTop={"20px"}
         display="flex"
         flexDirection="column"
         maxWidth="400px"
-        m="auto"
         width={"100%"}
-        mt={15}
       >
         <Typography variant="h5" align="center" mb={3}>
           Login
@@ -95,7 +91,13 @@ const Login = () => {
           error={!!errors.password}
           helperText={errors.password}
         />
-        <Button variant="contained" type="submit" fullWidth mt={3}>
+        <Button
+          style={{ backgroundColor: "black", color: "white" }}
+          variant="contained"
+          type="submit"
+          fullWidth
+          mt={3}
+        >
           Login
         </Button>
         <Link

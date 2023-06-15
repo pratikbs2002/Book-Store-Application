@@ -70,7 +70,7 @@ export default function Cart() {
           <div className="cart-page-cart-component">
             <div className="cart-top-bar">
               <Typography
-                style={{ fontWeight: "500", fontSize: "25px" }}
+                style={{ fontWeight: "700", fontSize: "25px", color: "black" }}
                 className="cart-title"
               >
                 Shopping Cart

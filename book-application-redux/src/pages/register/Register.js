@@ -100,15 +100,12 @@ const Register = () => {
   return (
     <form
       style={{
-        backgroundImage: `url(${bgImage})`,
-        // backgroundRepeat: "no-repeat",
-        backgroundPosition: "right bottom",
         height: "100vh",
         alignItems: "center",
         justifyContent: "center",
         display: "flex",
         width: "100%",
-        // paddingBottom: "200px"
+        marginTop: "100px",
       }}
       onSubmit={handleSubmit}
     >
@@ -116,13 +113,12 @@ const Register = () => {
         bgcolor={"white"}
         borderRadius={"20px"}
         boxShadow={"0 4px 8px rgba(0, 0, 0, 0.2)"}
-        padding={10}
         display="flex"
         flexDirection="column"
         maxWidth="400px"
-        m="auto"
         width={"100%"}
-        mt={15}
+        padding={"70px"}
+        paddingTop={"20px"}
       >
         <Typography variant="h5" align="center" mb={3}>
           Register
@@ -187,7 +183,13 @@ const Register = () => {
           error={!!errors.confirmPassword}
           helperText={errors.confirmPassword}
         />
-        <Button variant="contained" type="submit" fullWidth mt={3}>
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "black", color: "white" }}
+          type="submit"
+          fullWidth
+          mt={3}
+        >
           Register
         </Button>
         <Link
