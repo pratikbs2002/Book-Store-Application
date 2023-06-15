@@ -244,10 +244,21 @@ export default function Cart() {
                 </div>
                 <div className="order-now-button">
                   <Button
-                    disabled={cartItems.length === 0}
-                    onClick={() => toast.success("Order Done")}
+                    // disabled={cartItems.length === 0}
+                    onClick={() => {
+                      if (cartItems.length !== 0) {
+                        toast.success("Order Done");
+                      } else {
+                        toast.error("Your Cart is empty");
+                      }
+                    }}
                     endIcon={<TbTruckDelivery className="truck-icon" />}
-                    style={{ backgroundColor: "#121920", color: "white" }}
+                    style={{
+                      cursor:
+                        cartItems.length === 0 ? "not-allowed" : "pointer",
+                      backgroundColor: "#121920",
+                      color: "white",
+                    }}
                   >
                     Order Now
                   </Button>
