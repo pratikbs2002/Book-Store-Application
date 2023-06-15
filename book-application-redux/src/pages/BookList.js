@@ -1,122 +1,23 @@
 import "./Categories.css";
-import education1 from "../assets/books/education1.jpg";
-import education2 from "../assets/books/education2.jpg";
-import education3 from "../assets/books/education3.jpg";
-import education4 from "../assets/books/education4.jpg";
-import education5 from "../assets/books/education5.jpeg";
 import React from "react";
 import BookListCard from "../components/ui/BookListCard";
-import { Typography } from "@mui/material";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 export default function BookList() {
   const navigate = useNavigate();
   const { category } = useParams();
-  const BookData = [
-    {
-      id: 1,
-      productId: 1,
-      title: "The Element: How Finding Your Passion Changes Everything",
-      author: "Ken Robinson",
-      imageSrc: education1,
-      price: 1000,
-      category: "education",
-    },
-    {
-      id: 2,
-      productId: 2,
-      title: "Mindset: The New Psychology of Success",
-      author: "Carol S. Dweck",
-      imageSrc: education2,
-      price: 1200,
-      category: "education",
-    },
-    {
-      id: 3,
-      productId: 3,
-      title: "Educated: A Memoir",
-      author: "Tara Westover",
-      imageSrc: education3,
-      price: 700,
-      category: "education",
-    },
-    {
-      id: 4,
-      productId: 4,
-      title: "Grit: The Power of Passion and Perseverance",
-      author: "Angela Duckworth",
-      imageSrc: education1,
-      price: 2000,
-      category: "education",
-    },
-    {
-      id: 5,
-      productId: 5,
-      title: "The Smartest Kids in the World: And How They Got That Way",
-      author: "Amanda Ripley",
-      imageSrc: education4,
-      price: 1300,
-      category: "education",
-    },
-    {
-      id: 6,
-      productId: 6,
-      title:
-        "The Teacher Wars: A History of America's Most Embattled Profession",
-      author: "Dana Goldstein",
-      imageSrc: education5,
-      price: 1200,
-      category: "education",
-    },
-    {
-      id: 7,
-      productId: 7,
-      title:
-        "How Children Succeed: Grit, Curiosity, and the Hidden Power of Character",
-      author: "Paul Tough",
-      imageSrc: education1,
-      price: 600,
-      category: "education",
-    },
-    {
-      id: 8,
-      productId: 8,
-      title: "The Learning Brain: Memory and Brain Development in Children",
-      author: "Torkel Klingberg",
-      imageSrc: education1,
-      price: 2100,
-      category: "education",
-    },
-    {
-      id: 9,
-      productId: 9,
-      title: "Make It Stick: The Science of Successful Learning",
-      author: "Peter C. Brown",
-      imageSrc: education3,
-      price: 3200,
-      category: "education",
-    },
-    {
-      id: 10,
-      productId: 10,
-      title:
-        "The Reading Mind: A Cognitive Approach to Understanding How the Mind Reads",
-      author: "Daniel T. Willingham",
-      imageSrc: education4,
-      price: 1600,
-      category: "education",
-    },
-  ];
+
   const books = [
     {
       id: 1,
       productId: 1,
-
       bookName: "The Element",
       author: "Ken Robinson",
       price: 1000,
       category: "education",
+      imageSrc:
+        "https://m.media-amazon.com/images/I/71X3K99ZL3L._AC_UF1000,1000_QL80_.jpg",
       description:
         "The Element: How Finding Your Passion Changes Everything is a book by Ken Robinson that explores the concept of finding one's passion and how it can transform our lives. With inspiring stories and practical advice, Robinson encourages readers to discover their unique talents and interests to live a more fulfilling and meaningful life.",
     },
@@ -127,6 +28,8 @@ export default function BookList() {
       author: "Carol S. Dweck",
       price: 1200,
       category: "education",
+      imageSrc:
+        "https://m.media-amazon.com/images/I/71tplujXG+L._AC_UF1000,1000_QL80_.jpg",
       description:
         "Mindset: The New Psychology of Success by Carol S. Dweck delves into the power of mindset and its impact on our achievements and personal growth. Dweck introduces the concept of fixed and growth mindsets, highlighting how a growth mindset can lead to resilience, learning, and the ability to overcome challenges. Through research and real-life examples, the book offers practical strategies to develop a growth mindset and unlock our full potential.",
     },
@@ -137,6 +40,7 @@ export default function BookList() {
       author: "Yuval Noah Harari",
       price: 1500,
       category: "history",
+      imageSrc: "https://m.media-amazon.com/images/I/51Sn8PEXwcL.jpg",
       description:
         "Sapiens: A Brief History of Humankind by Yuval Noah Harari takes readers on a captivating journey through the history of Homo sapiens. From our evolutionary origins to the development of agriculture, empires, and modern societies, Harari explores key milestones that have shaped our species. Combining anthropology, history, and science, this book offers thought-provoking insights into the past and raises important questions about our future.",
     },
@@ -147,6 +51,8 @@ export default function BookList() {
       author: "Paulo Coelho",
       price: 800,
       category: "fiction",
+      imageSrc:
+        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg",
       description:
         "The Alchemist by Paulo Coelho is a renowned novel that follows the journey of a young shepherd named Santiago as he searches for his personal legend. Filled with symbolism and spiritual wisdom, the book explores themes of destiny, self-discovery, and the pursuit of dreams. It has inspired millions of readers around the world to reflect on their own life paths and pursue their aspirations.",
     },
@@ -157,6 +63,8 @@ export default function BookList() {
       author: "Harper Lee",
       price: 900,
       category: "fiction",
+      imageSrc:
+        "https://rukminim1.flixcart.com/image/850/1000/xif0q/book/q/m/n/to-kill-a-mockingbird-original-imagjyhhtbh3xsmx.jpeg?q=90",
       description:
         "To Kill a Mockingbird by Harper Lee is a classic novel set in the fictional town of Maycomb, Alabama during the 1930s. Through the eyes of Scout Finch, the story explores themes of racial injustice, morality, and the loss of innocence. It is a powerful narrative that continues to resonate with readers, addressing important social issues and promoting empathy and understanding.",
     },
@@ -167,6 +75,8 @@ export default function BookList() {
       author: "F. Scott Fitzgerald",
       price: 950,
       category: "fiction",
+      imageSrc:
+        "https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg",
       description:
         "The Great Gatsby by F. Scott Fitzgerald is a renowned novel set in the 1920s during the Jazz Age. Through the eyes of narrator Nick Carraway, the story delves into the lives of wealthy socialites and the pursuit of the American Dream. With themes of love, wealth, and the illusion of happiness, the book offers a critique of the Roaring Twenties and the underlying emptiness of materialism.",
     },
@@ -177,6 +87,8 @@ export default function BookList() {
       author: "George Orwell",
       price: 1100,
       category: "fiction",
+      imageSrc:
+        "https://m.media-amazon.com/images/I/514CVwOrybL._AC_UF1000,1000_QL80_.jpg",
       description:
         "1984 by George Orwell is a dystopian novel set in a totalitarian society ruled by Big Brother. The story follows protagonist Winston Smith as he rebels against the oppressive regime and questions the manipulation of truth and individual freedom. With its powerful portrayal of surveillance, censorship, and psychological control, 1984 remains a thought-provoking warning about the potential dangers of authoritarianism.",
     },
@@ -187,6 +99,8 @@ export default function BookList() {
       author: "Jane Austen",
       price: 850,
       category: "fiction",
+      imageSrc:
+        "https://m.media-amazon.com/images/I/71Q1tPupKjL._AC_UF1000,1000_QL80_.jpg",
       description:
         "Pride and Prejudice by Jane Austen is a beloved classic that follows the story of Elizabeth Bennet and her tumultuous relationship with the proud Mr. Darcy. Set in early 19th-century England, the novel explores themes of love, social class, and the expectations placed on women in society. Austen's wit and sharp social commentary continue to captivate readers to this day.",
     },
@@ -197,6 +111,8 @@ export default function BookList() {
       author: "J.R.R. Tolkien",
       price: 950,
       category: "fantasy",
+      imageSrc:
+        "https://m.media-amazon.com/images/I/710+HcoP38L._AC_UF1000,1000_QL80_.jpg",
       description:
         "The Hobbit by J.R.R. Tolkien is an enchanting adventure that precedes the events of The Lord of the Rings. Follow Bilbo Baggins as he embarks on a quest to reclaim the Lonely Mountain from the fearsome dragon Smaug. With magical creatures, epic battles, and a tale of bravery and friendship, this timeless fantasy novel has captured the imaginations of readers worldwide.",
     },
@@ -207,6 +123,7 @@ export default function BookList() {
       author: "J.D. Salinger",
       price: 900,
       category: "fiction",
+      imageSrc: "https://m.media-amazon.com/images/I/91HPG31dTwL.jpg",
       description:
         "The Catcher in the Rye by J.D. Salinger is a coming-of-age novel that follows the rebellious teenager Holden Caulfield as he navigates the complexities of adolescence and society. With themes of alienation, identity, and the loss of innocence, Salinger's iconic work continues to resonate with readers of all generations, sparking discussions about teenage angst and the search for authenticity.",
     },
@@ -217,6 +134,8 @@ export default function BookList() {
       author: "J.R.R. Tolkien",
       price: 1800,
       category: "fantasy",
+      imageSrc:
+        "https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF1000,1000_QL80_.jpg",
       description:
         "The Lord of the Rings by J.R.R. Tolkien is an epic high-fantasy trilogy that follows the journey of Frodo Baggins to destroy the One Ring and defeat the Dark Lord Sauron. Set in the richly imagined world of Middle-earth, the books explore themes of heroism, sacrifice, and the struggle between good and evil. Tolkien's masterful storytelling has made these books a cornerstone of fantasy literature.",
     },
@@ -227,6 +146,8 @@ export default function BookList() {
       author: "Dan Brown",
       price: 1050,
       category: "thriller",
+      imageSrc:
+        "https://m.media-amazon.com/images/I/91Q5dCjc2KL._AC_UF1000,1000_QL80_.jpg",
       description:
         "The Da Vinci Code by Dan Brown is a gripping thriller that combines art, history, and mystery. Professor Robert Langdon becomes entangled in a quest to uncover a hidden secret that could shake the foundations of Christianity. As Langdon follows a trail of clues, he encounters danger and deception at every turn. Packed with suspense and cryptic puzzles, this bestseller keeps readers on the edge of their seats.",
     },
@@ -237,6 +158,7 @@ export default function BookList() {
       author: "J.K. Rowling",
       price: 950,
       category: "fantasy",
+      imageSrc: "https://m.media-amazon.com/images/I/5165He67NEL.jpg",
       description:
         "Harry Potter and the Philosopher's Stone is the first book in the beloved Harry Potter series by J.K. Rowling. It introduces readers to the magical world of Hogwarts School of Witchcraft and Wizardry and follows young Harry Potter as he discovers his true identity as a wizard. With themes of friendship, courage, and the battle between good and evil, this enchanting tale has captivated millions of readers worldwide.",
     },
@@ -513,6 +435,13 @@ export default function BookList() {
     },
   ];
 
+  const filteredBooks =
+    category === "all"
+      ? books
+      : books.filter((book) => book.category === category);
+  console.log(category);
+  console.log(filteredBooks);
+
   return (
     <div
       style={{
@@ -532,7 +461,8 @@ export default function BookList() {
           color: "black",
         }}
       >
-        Category : {category}
+        Category : {category} ({filteredBooks.length} Book
+        {filteredBooks.length === 1 ? `` : `s`})
       </h2>
       <div
         style={{
@@ -546,14 +476,19 @@ export default function BookList() {
         <BsArrowLeftCircleFill />
       </div>
       <div className="card-container2">
-        {BookData.map((card, index) => (
+        {filteredBooks.map((card, index) => (
           <BookListCard
             key={index}
             productId={card.productId}
-            title={card.title}
+            title={card.bookName}
             price={card.price}
-            imageSrc={card.imageSrc}
+            imageSrc={
+              card.imageSrc
+                ? card.imageSrc
+                : "https://w0.peakpx.com/wallpaper/310/869/HD-wallpaper-black-screen-space-thumbnail.jpg"
+            }
             author={card.author}
+            description={card.description}
           />
         ))}
       </div>

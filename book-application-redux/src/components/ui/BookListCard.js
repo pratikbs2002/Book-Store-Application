@@ -10,7 +10,7 @@ import { BiRightArrow } from "react-icons/bi";
 import BookDialog from "../../pages/BookDialog";
 
 export default function BookListCard(props) {
-  const { title, imageSrc, price, productId, author } = props;
+  const { title, imageSrc, price, productId, author, description } = props;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLogin } = useContext(AuthContext);
@@ -118,6 +118,7 @@ export default function BookListCard(props) {
         author={author}
         price={price}
         handleAddToCart={handleAddToCart}
+        description={description}
       />
     </>
   );

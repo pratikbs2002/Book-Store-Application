@@ -20,6 +20,7 @@ export default function BookDialog(props) {
     author,
     price,
     handleAddToCart,
+    description,
   } = props;
 
   return (
@@ -50,6 +51,7 @@ export default function BookDialog(props) {
               title={title}
               author={author}
               price={price}
+              description={description}
             />
           </DialogContentText>
         </DialogContent>

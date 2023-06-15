@@ -4,7 +4,7 @@ import CategoriesCard from "../components/ui/CategoriesCard";
 import { Typography } from "@mui/material";
 export default function Categories() {
   const categories = [
-    { id: 1, category: "Self-help" },
+    { id: 0, category: "All" },
     { id: 2, category: "Psychology" },
     { id: 3, category: "History" },
     { id: 4, category: "Fiction" },
@@ -22,7 +22,7 @@ export default function Categories() {
     { id: 16, category: "Post-apocalyptic" },
     { id: 17, category: "Friendship" },
     { id: 18, category: "Young Adult" },
-    { id: 19, category: "Romance" },
+    { id: 19, category: "Education" },
   ];
 
   return (
