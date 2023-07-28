@@ -64,6 +64,9 @@ This will run the application in development mode, and you can access it by open
 
 The Book Store Application utilizes the following technologies:
 
+
+   <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React" height="24" width="24"><img src="https://img.icons8.com/color/48/000000/material-ui.png" alt="React" height="24" width="24"><img src="https://img.icons8.com/color/48/000000/redux.png" alt="React" height="24" width="24"> 
+
 - React: A JavaScript library for building user interfaces.
 - Material UI: A popular React UI framework for creating beautiful and responsive designs.
 - Redux: A state management library for maintaining a centralized store of application data.
