@@ -2,9 +2,10 @@
 
 Welcome to the Book Store Application! This is a React-based project that utilizes Material UI for a sleek and modern user interface and Redux for state management. The application also incorporates local and session storage functionality to save user preferences and data between sessions.
 
-Demo
+## Demo
 Check out the live demo of the Book Store Application: https://pratik-book-store.vercel.app/
-[Demo](https://pratik-book-store.vercel.app/)
+
+<button>[Demo](https://pratik-book-store.vercel.app/)</button>
 
 
 ## Table of Contents
@@ -34,7 +35,7 @@ To run the Book Store Application locally on your machine, follow these steps:
 1. Clone the repository to your local machine using the following command:
 
    ```
-   git clone https://github.com/pratikbs2002/Tatva-Book-Application.git
+   git clone https://github.com/pratikbs2002/Book-Store-Application.git
    ```
 
 2. Navigate to the project directory:
