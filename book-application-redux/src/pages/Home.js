@@ -11,9 +11,12 @@ export default function Home() {
   const { isLogin } = useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const imageUrl =
+    "https://drive.google.com/file/d/10gtq5YGNnsZdMVVQm8P1bVNvrqTSDxnr/view?usp=sharing";
   return (
     <div className="homepage-container">
-      <div className="content-section">
+      {/* <div className="content-section">
         <div style={{ fontSize: "20px", fontWeight: "400" }}>Welcome</div>
         <div className="title">
           <span style={{ color: "red", fontWeight: "700" }}>
@@ -58,8 +61,9 @@ export default function Home() {
       </div>
       <div className="image-section">
         <img src={img} alt="Bookstore" className="homepage-image" />
-      </div>
+      </div> */}
       <ToastContainer />
+      <img src={imageUrl} alt="My custom description" />
     </div>
   );
 }

@@ -42,7 +42,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
-          Pratik
+         Book store
         </Link>
         <div className="navbar-toggle" onClick={toggle}>
           {isOpen ? (

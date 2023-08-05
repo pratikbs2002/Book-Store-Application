@@ -43,7 +43,7 @@ export default function Home() {
             color: "blue",
           }}
         >
-          Pratik's Book Store
+         Book Store
         </div>
         <div
           style={{
